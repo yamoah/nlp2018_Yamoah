@@ -10,17 +10,19 @@
 # In[2]:
 
 
+#!/usr/bin/python
+import sys
 import numpy as np
 
 
 # In[3]:
 
 
-def main(source, target):
+def prime(source, target):
     distMatrix = min_edit_distance(source, target)
     distMatrix = initiate(distMatrix, len(source), len(target))
     med = recurrRelation(distMatrix,source,target)
-    print(distMatrix)
+    #print(distMatrix)
     print(med)
 
 
@@ -30,8 +32,8 @@ def main(source, target):
 def min_edit_distance(source, target):
     n = len(source) + 1
     m = len(target) + 1
-    print(source +" "+ str(n))
-    print(target +" "+ str(m))
+    #print(source +" "+ str(n))
+    #print(target +" "+ str(m))
     myMatrix = np.zeros((n,m))
     #myMatrix = np.matrix(np.arange(n*m).reshape((n,m)))
     return myMatrix
@@ -72,27 +74,10 @@ def recurrRelation(D, source, target):
 # In[9]:
 
 
-main("intention", "execution")
-
-
-# In[ ]:
-
-
-def doMatrix(n, m):
-    aa = np.matrix(np.arange(n*m).reshape((n,m)))
-    #print(aa.shape)
-    print(aa)
-#doMatrix(5,5)
-
-
-# In[ ]:
-
-
-#b = np.zeros((3,4))
-#b.shape
-#print(b)
-#print("----------------")
-#for i in range(1,3):
-#    b[0,i] = i+10
-#print(b)
+def main():
+    if(sys.argv[1]=="" or sys.argv[2]==""):
+        print("missing arguments")
+    else:
+        prime(sys.argv[1], sys.argv[2])
+main()
 
