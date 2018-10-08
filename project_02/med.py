@@ -75,9 +75,17 @@ def recurrRelation(D, source, target):
 
 
 def main():
-    if(sys.argv[1]=="" or sys.argv[2]==""):
-        print("missing arguments")
-    else:
-        prime(sys.argv[1], sys.argv[2])
+    try:
+        if(sys.argv[1]=="" or sys.argv[2]==""):
+            if(sys.argv[1]=="" and sys.argv[2]!=""):
+                print((len(sys.argv[2]))*2)
+            elif(sys.argv[1]!="" and sys.argv[2]==""):
+                print((len(sys.argv[1]))*2)
+            else:
+                print("0")
+        else:
+            prime(sys.argv[1], sys.argv[2])
+    except:
+        print("missing parameters")
 main()
 
